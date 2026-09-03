@@ -1,9 +1,12 @@
-This repository contains the research code, model training scripts,
-evaluation tools, analysis, and experimental results for RoadGuard,
-a road hazard detection and rider safety system.
+This repository contains the machine learning, data preparation, model training, evaluation, analysis, and experimental results of RoadGuard. The complete mobile application source code is provided in the main RoadGuard application repository linked below.
 
-The repository is focused on the machine learning and data analysis
-component of RoadGuard rather than the complete mobile application.
+Full RoadGuard Application
+
+The complete RoadGuard application, including the mobile implementation, real time hazard detection, rider warning, hazard heatmap, and safest path recommendation features, is available here:
+
+RoadGuard Hazard Detection Rider Warning Heatmap YOLOv8n
+
+This repository focuses on the research and experimental component, while the linked repository contains the full application implementation.
 
 Repository Structure
 
@@ -34,44 +37,55 @@ RoadGuard-Research/
 
 Codes
 
-The Codes directory contains the main scripts used throughout the
-experimental workflow.
+The Codes directory contains the scripts used for dataset preparation, annotation processing, model training, evaluation, and result analysis.
 
-Script                             Purpose
+Script
 
-00_prepare_test_split.py         Prepares the test split for model
-evaluation
+Purpose
 
-01_train_all_models.py           Trains the selected YOLO models
-using a consistent experimental
-setup
+00_prepare_test_split.py
 
-02_evaluate_all_models.py        Evaluates trained models on the
-test/validation data
+Prepares the test split for model evaluation
 
-03_results_table.py              Collects and organizes model
-performance results into tables
+01_train_all_models.py
 
-audit_class_samples.py           Audits class-wise samples and
-dataset distribution
+Trains the selected YOLO models using a consistent setup
 
-bbox_editor.py                   Supports bounding-box
-inspection/editing
+02_evaluate_all_models.py
 
-convert_voc_to_yolo.py           Converts Pascal VOC annotations to
-YOLO format
+Evaluates trained models on the evaluation data
 
-evaluate_all_models.py           Performs comparative evaluation of
-multiple trained models
+03_results_table.py
 
-train_yolo_roc.py                Generates ROC-related analysis for
-the detection experiments
+Organizes model performance into comparative tables
+
+audit_class_samples.py
+
+Audits class wise samples and dataset distribution
+
+bbox_editor.py
+
+Supports bounding box inspection and editing
+
+convert_voc_to_yolo.py
+
+Converts Pascal VOC annotations to YOLO format
+
+evaluate_all_models.py
+
+Performs comparative evaluation of multiple models
+
+train_yolo_roc.py
+
+Generates ROC related analysis
+
+train_yolov8_enhanced.py
+
+Trains the enhanced YOLOv8n experiment
 
 Models
 
-The Models directory contains the trained model outputs and related
-files for the main lightweight YOLO architectures evaluated in
-RoadGuard:
+The Models directory contains the trained model outputs and associated experimental files for the lightweight YOLO models evaluated in RoadGuard:
 
 YOLOv5n
 
@@ -79,51 +93,143 @@ YOLOv8n
 
 YOLOv10n
 
-These models were selected primarily for their suitability for
-lightweight road-hazard detection and potential mobile deployment.
+These models were evaluated as lightweight object detection architectures suitable for road hazard detection and potential mobile deployment.
 
 Experimental Configuration
 
-The following configuration represents the main YOLOv8n training setup
-used in the experiments.
+The main YOLOv8n training configuration used in the experiments is summarized below.
 
-Parameter                            Value
+Parameter
 
-Task                                 Object Detection
-Model                                YOLOv8n
-Image Size                           512 × 512
-Epochs                               100
-Batch Size                           24
-Optimizer                            SGD
-Initial Learning Rate (lr0)        0.01
-Final Learning Rate Factor (lrf)   0.01
-Momentum                             0.937
-Weight Decay                         0.0005
-Warmup Epochs                        3
-Patience                             15
-Seed                                 42
-Deterministic                        True
-AMP                                  True
-Device                               GPU (0)
-Workers                              0
-Pretrained                           True
-Validation                           Enabled
-IoU Threshold                        0.7
-Maximum Detections                   300
-Mosaic Augmentation                  1.0
-Mixup                                0.0
-Horizontal Flip                      0.5
-Translation                          0.1
-Scale                                0.5
-HSV Hue                              0.015
-HSV Saturation                       0.7
-HSV Value                            0.4
-Auto Augmentation                    RandAugment
-Erasing                              0.4
+Value
+
+Task
+
+Object Detection
+
+Model
+
+YOLOv8n
+
+Image Size
+
+512 × 512
+
+Epochs
+
+100
+
+Batch Size
+
+24
+
+Optimizer
+
+SGD
+
+Initial Learning Rate (lr0)
+
+0.01
+
+Final Learning Rate Factor (lrf)
+
+0.01
+
+Momentum
+
+0.937
+
+Weight Decay
+
+0.0005
+
+Warmup Epochs
+
+3
+
+Patience
+
+15
+
+Seed
+
+42
+
+Deterministic
+
+True
+
+AMP
+
+True
+
+Device
+
+GPU (0)
+
+Workers
+
+0
+
+Pretrained
+
+True
+
+Validation
+
+Enabled
+
+IoU Threshold
+
+0.7
+
+Maximum Detections
+
+300
+
+Mosaic
+
+1.0
+
+Mixup
+
+0.0
+
+Horizontal Flip
+
+0.5
+
+Translation
+
+0.1
+
+Scale
+
+0.5
+
+HSV Hue
+
+0.015
+
+HSV Saturation
+
+0.7
+
+HSV Value
+
+0.4
+
+Auto Augmentation
+
+RandAugment
+
+Erasing
+
+0.4
 
 Training and Evaluation Workflow
 
-The experimental workflow follows these main stages:
+The experimental workflow is organized as follows:
 
 Dataset
    ↓
@@ -135,75 +241,59 @@ Model Training
    ↓
 Model Evaluation
    ↓
-Class-wise Analysis
+Class Wise Analysis
    ↓
 Model Comparison
    ↓
 Tables, Figures and Results
 
-The scripts are organized to support reproducible comparison between the
-selected YOLO models under a consistent experimental setup.
+The scripts are designed to support a consistent comparison of the evaluated YOLO models.
 
 Results
 
-The Results directory contains the generated experimental outputs and
-analysis used for the RoadGuard research work, including model
-performance comparisons, class-wise evaluation, tables, and related
-result files.
+The Results directory contains the experimental outputs and analysis generated during the RoadGuard research process, including model performance comparisons, class wise evaluation, tables, figures, and related result files.
 
-The results can be used to compare the detection performance of the
-evaluated lightweight models and identify the model selected for the
-RoadGuard deployment pipeline.
+These results support the comparative assessment of the lightweight detection models and the selection of the model used in the RoadGuard system.
 
-Demonstration
+Demonstration Video
 
-The repository includes a demonstration video showing the RoadGuard
-system operating in a practical road environment.
+A demonstration video is included in the repository to show the RoadGuard system operating in a practical road environment.
 
-The video provides a visual demonstration of the road-hazard detection
-process and the system's intended real-time usage.
+The video provides a visual representation of the road hazard detection process and the intended real time usage of the system.
 
 Reproducibility
 
 To reproduce the main experiments:
 
-Prepare the dataset in YOLO format.
+1. Prepare the dataset in YOLO format
+2. Configure the dataset YAML file
+3. Prepare the test split
+4. Train the selected YOLO models
+5. Evaluate the trained models
+6. Generate comparative tables and analysis
 
-Configure the dataset YAML file.
+The main experiments use a fixed random seed of 42 and deterministic settings where supported.
 
-Run the test-split preparation script.
+RoadGuard Research Scope
 
-Train the selected models using the training scripts.
+This repository covers:
 
-Evaluate the trained models.
+Dataset preparation and annotation processing
 
-Generate comparative tables and analysis.
+Object detection model training
 
-The experiments use a fixed random seed of 42 and deterministic
-training settings where supported.
+YOLO model comparison
 
-RoadGuard
+Model evaluation
 
-RoadGuard combines lightweight computer vision with mobile sensing to
-support road-hazard detection and rider safety. The research component
-in this repository focuses on the dataset preparation, object
-detection models, training, evaluation, comparative analysis, and
-experimental results.
+Class wise performance analysis
 
-Full RoadGuard Application
+ROC related analysis
 
-The complete source code of the RoadGuard application, including the
-mobile application implementation and system features, is available in
-the main application repository:
+Experimental result generation
 
-RoadGuard: Hazard Detection, Rider Warning, Heatmap and
-YOLOv8n
-
-This research repository contains the model training, evaluation, data
-analysis, experiments, and results, while the repository above
-contains the full application code and implementation.
+The mobile application, rider warning interface, hazard heatmap, route recommendation, and other application level components are maintained separately in the full RoadGuard application repository.
 
 Citation
 
-If you use this repository or the associated RoadGuard research work in
-academic research, please cite the corresponding publication.
+If you use this repository or the associated RoadGuard research work in academic research, please cite the corresponding publication.
