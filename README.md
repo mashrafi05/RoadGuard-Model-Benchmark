@@ -1,12 +1,4 @@
-This repository contains the machine learning, data preparation, model training, evaluation, analysis, and experimental results of RoadGuard. The complete mobile application source code is provided in the main RoadGuard application repository linked below.
-
-Full RoadGuard Application
-
-The complete RoadGuard application, including the mobile implementation, real time hazard detection, rider warning, hazard heatmap, and safest path recommendation features, is available here:
-
-RoadGuard Hazard Detection Rider Warning Heatmap YOLOv8n
-
-This repository focuses on the research and experimental component, while the linked repository contains the full application implementation.
+This repository focuses on the research and experimental component.
 
 Repository Structure
 
